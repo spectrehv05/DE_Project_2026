@@ -1,0 +1,27 @@
+{
+  "team_number": "T0144",
+  "group_lead": {
+    "name": "Harsh Vardhan",
+    "enrollment_no": "2501010175",
+    "github": "spectrehv05"
+  },
+  "members": [
+    {
+      "name": "Kartik Vaishnav",
+      "enrollment_no": "2501010212",
+      "github": "kartiknst"
+    },
+    {
+      "name": "Musharrif Khan",
+      "enrollment_no": "2501010286",
+      "github": "musharrifkhan"
+    },
+    {
+      "name": "Nabhya Singh",
+      "enrollment_no": "2501010288",
+      "github": "simhhaaa"
+    }
+  ],
+  "postgres_version": "18.6",
+  "laptop_used_for_benchmarks": "MacBook Pro"
+}

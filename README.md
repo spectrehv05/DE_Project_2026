@@ -22,12 +22,12 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | | | |
-| Member 2 | | | |
-| Member 3 | | | |
-| Member 4 | | | |
+| Group Lead | Harsh Vardhan | 2501010175 | spectrehv05 |
+| Member 2 | Kartik Vaishnav | 2501010212 | kartiknst |
+| Member 3 | Musharrif Khan | 2501010286 | musharrifkhan |
+| Member 4 | Nabhya Singh | 2501010288 | simhhaaa |
 
-**Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
+**Team No.:** T0144 · **Section:** D · **Repository URL:** https://github.com/spectrehv05/DE_Project_2026
 
 ---
 

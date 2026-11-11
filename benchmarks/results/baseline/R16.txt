@@ -1,0 +1,57 @@
+=== R16 run 1 ===
+Sort  (cost=67.19..67.20 rows=6 width=32) (actual time=0.039..0.040 rows=6.00 loops=1)
+  Sort Key: r.read_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=25
+  ->  Nested Loop  (cost=0.71..67.11 rows=6 width=32) (actual time=0.018..0.032 rows=6.00 loops=1)
+        Buffers: shared hit=22
+        ->  Index Scan using message_receipts_pkey on message_receipts r  (cost=0.42..17.28 rows=6 width=20) (actual time=0.011..0.012 rows=6.00 loops=1)
+              Index Cond: (message_id = 119989)
+              Index Searches: 1
+              Buffers: shared hit=4
+        ->  Index Scan using users_pkey on users u  (cost=0.29..8.30 rows=1 width=16) (actual time=0.003..0.003 rows=1.00 loops=6)
+              Index Cond: (user_id = r.user_id)
+              Index Searches: 6
+              Buffers: shared hit=18
+Planning:
+  Buffers: shared hit=240
+Planning Time: 0.286 ms
+Execution Time: 0.059 ms
+=== R16 run 2 ===
+Sort  (cost=67.19..67.20 rows=6 width=32) (actual time=0.038..0.039 rows=6.00 loops=1)
+  Sort Key: r.read_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=25
+  ->  Nested Loop  (cost=0.71..67.11 rows=6 width=32) (actual time=0.018..0.031 rows=6.00 loops=1)
+        Buffers: shared hit=22
+        ->  Index Scan using message_receipts_pkey on message_receipts r  (cost=0.42..17.28 rows=6 width=20) (actual time=0.011..0.012 rows=6.00 loops=1)
+              Index Cond: (message_id = 119989)
+              Index Searches: 1
+              Buffers: shared hit=4
+        ->  Index Scan using users_pkey on users u  (cost=0.29..8.30 rows=1 width=16) (actual time=0.003..0.003 rows=1.00 loops=6)
+              Index Cond: (user_id = r.user_id)
+              Index Searches: 6
+              Buffers: shared hit=18
+Planning:
+  Buffers: shared hit=240
+Planning Time: 0.275 ms
+Execution Time: 0.057 ms
+=== R16 run 3 ===
+Sort  (cost=67.19..67.20 rows=6 width=32) (actual time=0.065..0.066 rows=6.00 loops=1)
+  Sort Key: r.read_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=25
+  ->  Nested Loop  (cost=0.71..67.11 rows=6 width=32) (actual time=0.044..0.058 rows=6.00 loops=1)
+        Buffers: shared hit=22
+        ->  Index Scan using message_receipts_pkey on message_receipts r  (cost=0.42..17.28 rows=6 width=20) (actual time=0.009..0.010 rows=6.00 loops=1)
+              Index Cond: (message_id = 119989)
+              Index Searches: 1
+              Buffers: shared hit=4
+        ->  Index Scan using users_pkey on users u  (cost=0.29..8.30 rows=1 width=16) (actual time=0.008..0.008 rows=1.00 loops=6)
+              Index Cond: (user_id = r.user_id)
+              Index Searches: 6
+              Buffers: shared hit=18
+Planning:
+  Buffers: shared hit=240
+Planning Time: 0.286 ms
+Execution Time: 0.086 ms

@@ -1,5 +1,6 @@
 \set ON_ERROR_STOP on
 
+SET search_path TO whatsapp;
 BEGIN;
 
 -- Parent tables first
@@ -16,3 +17,5 @@ BEGIN;
 \copy blocked_users FROM 'seed_data/blocked_users.csv' WITH (FORMAT csv, HEADER true);
 
 COMMIT;
+
+ANALYZE;

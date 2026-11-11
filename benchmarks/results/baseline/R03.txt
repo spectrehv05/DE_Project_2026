@@ -1,0 +1,105 @@
+=== R03 run 1 ===
+Sort  (cost=6749.88..6749.89 rows=6 width=12) (actual time=7.981..8.784 rows=2.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3187
+  ->  Finalize GroupAggregate  (cost=6749.10..6749.80 rows=6 width=12) (actual time=7.977..8.780 rows=2.00 loops=1)
+        Group Key: m.chat_id
+        Buffers: shared hit=3184
+        ->  Gather Merge  (cost=6749.10..6749.71 rows=5 width=12) (actual time=7.974..8.778 rows=5.00 loops=1)
+              Workers Planned: 2
+              Workers Launched: 2
+              Buffers: shared hit=3184
+              ->  Partial GroupAggregate  (cost=5749.08..5749.11 rows=2 width=12) (actual time=6.121..6.121 rows=1.67 loops=3)
+                    Group Key: m.chat_id
+                    Buffers: shared hit=3184
+                    ->  Sort  (cost=5749.08..5749.08 rows=2 width=4) (actual time=6.117..6.117 rows=5.33 loops=3)
+                          Sort Key: m.chat_id
+                          Sort Method: quicksort  Memory: 25kB
+                          Buffers: shared hit=3184
+                          Worker 0:  Sort Method: quicksort  Memory: 25kB
+                          Worker 1:  Sort Method: quicksort  Memory: 25kB
+                          ->  Nested Loop  (cost=0.29..5749.07 rows=2 width=4) (actual time=0.693..6.104 rows=5.33 loops=3)
+                                Buffers: shared hit=3170
+                                ->  Parallel Seq Scan on message_receipts r  (cost=0.00..5732.45 rows=2 width=4) (actual time=0.684..6.075 rows=5.33 loops=3)
+                                      Filter: ((read_at IS NULL) AND (user_id = 965))
+                                      Rows Removed by Filter: 167191
+                                      Buffers: shared hit=3120
+                                ->  Index Scan using messages_pkey on messages m  (cost=0.29..8.31 rows=1 width=8) (actual time=0.005..0.005 rows=1.00 loops=16)
+                                      Index Cond: (message_id = r.message_id)
+                                      Index Searches: 16
+                                      Buffers: shared hit=50
+Planning:
+  Buffers: shared hit=149
+Planning Time: 0.281 ms
+Execution Time: 8.818 ms
+=== R03 run 2 ===
+Sort  (cost=6749.88..6749.89 rows=6 width=12) (actual time=6.523..7.198 rows=2.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3187
+  ->  Finalize GroupAggregate  (cost=6749.10..6749.80 rows=6 width=12) (actual time=6.519..7.194 rows=2.00 loops=1)
+        Group Key: m.chat_id
+        Buffers: shared hit=3184
+        ->  Gather Merge  (cost=6749.10..6749.71 rows=5 width=12) (actual time=6.515..7.191 rows=5.00 loops=1)
+              Workers Planned: 2
+              Workers Launched: 2
+              Buffers: shared hit=3184
+              ->  Partial GroupAggregate  (cost=5749.08..5749.11 rows=2 width=12) (actual time=5.493..5.493 rows=1.67 loops=3)
+                    Group Key: m.chat_id
+                    Buffers: shared hit=3184
+                    ->  Sort  (cost=5749.08..5749.08 rows=2 width=4) (actual time=5.489..5.489 rows=5.33 loops=3)
+                          Sort Key: m.chat_id
+                          Sort Method: quicksort  Memory: 25kB
+                          Buffers: shared hit=3184
+                          Worker 0:  Sort Method: quicksort  Memory: 25kB
+                          Worker 1:  Sort Method: quicksort  Memory: 25kB
+                          ->  Nested Loop  (cost=0.29..5749.07 rows=2 width=4) (actual time=0.719..5.479 rows=5.33 loops=3)
+                                Buffers: shared hit=3170
+                                ->  Parallel Seq Scan on message_receipts r  (cost=0.00..5732.45 rows=2 width=4) (actual time=0.710..5.454 rows=5.33 loops=3)
+                                      Filter: ((read_at IS NULL) AND (user_id = 965))
+                                      Rows Removed by Filter: 167191
+                                      Buffers: shared hit=3120
+                                ->  Index Scan using messages_pkey on messages m  (cost=0.29..8.31 rows=1 width=8) (actual time=0.004..0.004 rows=1.00 loops=16)
+                                      Index Cond: (message_id = r.message_id)
+                                      Index Searches: 16
+                                      Buffers: shared hit=50
+Planning:
+  Buffers: shared hit=149
+Planning Time: 0.269 ms
+Execution Time: 7.232 ms
+=== R03 run 3 ===
+Sort  (cost=6749.88..6749.89 rows=6 width=12) (actual time=6.689..7.397 rows=2.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3187
+  ->  Finalize GroupAggregate  (cost=6749.10..6749.80 rows=6 width=12) (actual time=6.677..7.368 rows=2.00 loops=1)
+        Group Key: m.chat_id
+        Buffers: shared hit=3184
+        ->  Gather Merge  (cost=6749.10..6749.71 rows=5 width=12) (actual time=6.674..7.366 rows=5.00 loops=1)
+              Workers Planned: 2
+              Workers Launched: 2
+              Buffers: shared hit=3184
+              ->  Partial GroupAggregate  (cost=5749.08..5749.11 rows=2 width=12) (actual time=5.292..5.293 rows=1.67 loops=3)
+                    Group Key: m.chat_id
+                    Buffers: shared hit=3184
+                    ->  Sort  (cost=5749.08..5749.08 rows=2 width=4) (actual time=5.289..5.290 rows=5.33 loops=3)
+                          Sort Key: m.chat_id
+                          Sort Method: quicksort  Memory: 25kB
+                          Buffers: shared hit=3184
+                          Worker 0:  Sort Method: quicksort  Memory: 25kB
+                          Worker 1:  Sort Method: quicksort  Memory: 25kB
+                          ->  Nested Loop  (cost=0.29..5749.07 rows=2 width=4) (actual time=1.338..5.279 rows=5.33 loops=3)
+                                Buffers: shared hit=3170
+                                ->  Parallel Seq Scan on message_receipts r  (cost=0.00..5732.45 rows=2 width=4) (actual time=1.330..5.253 rows=5.33 loops=3)
+                                      Filter: ((read_at IS NULL) AND (user_id = 965))
+                                      Rows Removed by Filter: 167191
+                                      Buffers: shared hit=3120
+                                ->  Index Scan using messages_pkey on messages m  (cost=0.29..8.31 rows=1 width=8) (actual time=0.004..0.004 rows=1.00 loops=16)
+                                      Index Cond: (message_id = r.message_id)
+                                      Index Searches: 16
+                                      Buffers: shared hit=50
+Planning:
+  Buffers: shared hit=149
+Planning Time: 0.257 ms
+Execution Time: 7.431 ms

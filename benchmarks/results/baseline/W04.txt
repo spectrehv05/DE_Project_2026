@@ -1,0 +1,42 @@
+=== W04 run 1 ===
+Insert on message_receipts  (cost=0.00..50.00 rows=0 width=0) (actual time=7.549..7.550 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: message_receipts_pkey
+  Tuples Inserted: 5000
+  Conflicting Tuples: 0
+  Buffers: shared hit=40087 dirtied=37 written=14
+  ->  Function Scan on generate_series g  (cost=0.00..50.00 rows=5000 width=24) (actual time=0.114..0.327 rows=5000.00 loops=1)
+Planning:
+  Buffers: shared hit=33
+Planning Time: 0.057 ms
+Trigger for constraint message_receipts_message_id_fkey: time=9.062 calls=5000
+Trigger for constraint message_receipts_user_id_fkey: time=9.657 calls=5000
+Execution Time: 26.522 ms
+=== W04 run 2 ===
+Insert on message_receipts  (cost=0.00..50.00 rows=0 width=0) (actual time=7.955..7.955 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: message_receipts_pkey
+  Tuples Inserted: 5000
+  Conflicting Tuples: 0
+  Buffers: shared hit=41583 dirtied=23
+  ->  Function Scan on generate_series g  (cost=0.00..50.00 rows=5000 width=24) (actual time=0.103..0.308 rows=5000.00 loops=1)
+Planning:
+  Buffers: shared hit=33
+Planning Time: 0.059 ms
+Trigger for constraint message_receipts_message_id_fkey: time=8.692 calls=5000
+Trigger for constraint message_receipts_user_id_fkey: time=9.442 calls=5000
+Execution Time: 26.336 ms
+=== W04 run 3 ===
+Insert on message_receipts  (cost=0.00..50.00 rows=0 width=0) (actual time=22.970..22.970 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: message_receipts_pkey
+  Tuples Inserted: 5000
+  Conflicting Tuples: 0
+  Buffers: shared hit=44139 dirtied=15 written=14
+  ->  Function Scan on generate_series g  (cost=0.00..50.00 rows=5000 width=24) (actual time=0.104..0.357 rows=5000.00 loops=1)
+Planning:
+  Buffers: shared hit=33
+Planning Time: 0.052 ms
+Trigger for constraint message_receipts_message_id_fkey: time=9.148 calls=5000
+Trigger for constraint message_receipts_user_id_fkey: time=10.096 calls=5000
+Execution Time: 42.453 ms

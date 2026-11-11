@@ -1,0 +1,39 @@
+=== R23 run 1 ===
+Sort  (cost=1347.65..1362.33 rows=5873 width=22) (actual time=3.027..3.156 rows=6945.00 loops=1)
+  Sort Key: last_active_at
+  Sort Method: quicksort  Memory: 464kB
+  Buffers: shared hit=353
+  ->  Seq Scan on devices d  (cost=0.00..980.00 rows=5873 width=22) (actual time=0.004..2.315 rows=6945.00 loops=1)
+        Filter: (((device_type)::text = ANY ('{WEB,DESKTOP}'::text[])) AND (last_active_at < '2026-06-01 00:00:00+05:30'::timestamp with time zone))
+        Rows Removed by Filter: 35055
+        Buffers: shared hit=350
+Planning:
+  Buffers: shared hit=144
+Planning Time: 0.185 ms
+Execution Time: 3.285 ms
+=== R23 run 2 ===
+Sort  (cost=1347.65..1362.33 rows=5873 width=22) (actual time=3.128..3.262 rows=6945.00 loops=1)
+  Sort Key: last_active_at
+  Sort Method: quicksort  Memory: 464kB
+  Buffers: shared hit=353
+  ->  Seq Scan on devices d  (cost=0.00..980.00 rows=5873 width=22) (actual time=0.004..2.419 rows=6945.00 loops=1)
+        Filter: (((device_type)::text = ANY ('{WEB,DESKTOP}'::text[])) AND (last_active_at < '2026-06-01 00:00:00+05:30'::timestamp with time zone))
+        Rows Removed by Filter: 35055
+        Buffers: shared hit=350
+Planning:
+  Buffers: shared hit=144
+Planning Time: 0.166 ms
+Execution Time: 3.390 ms
+=== R23 run 3 ===
+Sort  (cost=1347.65..1362.33 rows=5873 width=22) (actual time=3.186..3.340 rows=6945.00 loops=1)
+  Sort Key: last_active_at
+  Sort Method: quicksort  Memory: 464kB
+  Buffers: shared hit=353
+  ->  Seq Scan on devices d  (cost=0.00..980.00 rows=5873 width=22) (actual time=0.004..2.441 rows=6945.00 loops=1)
+        Filter: (((device_type)::text = ANY ('{WEB,DESKTOP}'::text[])) AND (last_active_at < '2026-06-01 00:00:00+05:30'::timestamp with time zone))
+        Rows Removed by Filter: 35055
+        Buffers: shared hit=350
+Planning:
+  Buffers: shared hit=144
+Planning Time: 0.167 ms
+Execution Time: 3.470 ms

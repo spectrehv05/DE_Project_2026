@@ -1,0 +1,78 @@
+=== R04 run 1 ===
+Limit  (cost=4852.17..4852.18 rows=3 width=36) (actual time=19.969..19.971 rows=6.00 loops=1)
+  Buffers: shared hit=1666
+  ->  Sort  (cost=4852.17..4852.18 rows=3 width=36) (actual time=19.969..19.970 rows=6.00 loops=1)
+        Sort Key: m.sent_at DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=1666
+        ->  Hash Join  (cost=1949.49..4852.15 rows=3 width=36) (actual time=5.289..19.960 rows=6.00 loops=1)
+              Hash Cond: (m.chat_id = cm.chat_id)
+              Buffers: shared hit=1663
+              ->  Seq Scan on messages m  (cost=0.00..2868.00 rows=13200 width=36) (actual time=0.004..18.625 rows=12935.00 loops=1)
+                    Filter: (body ~~* '%meeting%'::text)
+                    Rows Removed by Filter: 107065
+                    Buffers: shared hit=1368
+              ->  Hash  (cost=1949.44..1949.44 rows=4 width=4) (actual time=0.914..0.914 rows=4.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                    Buffers: shared hit=295
+                    ->  Index Only Scan using chat_members_pkey on chat_members cm  (cost=0.29..1949.44 rows=4 width=4) (actual time=0.354..0.910 rows=4.00 loops=1)
+                          Index Cond: (user_id = 965)
+                          Heap Fetches: 4
+                          Index Searches: 1
+                          Buffers: shared hit=295
+Planning:
+  Buffers: shared hit=216
+Planning Time: 0.344 ms
+Execution Time: 19.990 ms
+=== R04 run 2 ===
+Limit  (cost=4852.17..4852.18 rows=3 width=36) (actual time=20.332..20.334 rows=6.00 loops=1)
+  Buffers: shared hit=1666
+  ->  Sort  (cost=4852.17..4852.18 rows=3 width=36) (actual time=20.332..20.333 rows=6.00 loops=1)
+        Sort Key: m.sent_at DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=1666
+        ->  Hash Join  (cost=1949.49..4852.15 rows=3 width=36) (actual time=5.377..20.323 rows=6.00 loops=1)
+              Hash Cond: (m.chat_id = cm.chat_id)
+              Buffers: shared hit=1663
+              ->  Seq Scan on messages m  (cost=0.00..2868.00 rows=13200 width=36) (actual time=0.004..18.959 rows=12935.00 loops=1)
+                    Filter: (body ~~* '%meeting%'::text)
+                    Rows Removed by Filter: 107065
+                    Buffers: shared hit=1368
+              ->  Hash  (cost=1949.44..1949.44 rows=4 width=4) (actual time=0.949..0.950 rows=4.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                    Buffers: shared hit=295
+                    ->  Index Only Scan using chat_members_pkey on chat_members cm  (cost=0.29..1949.44 rows=4 width=4) (actual time=0.335..0.947 rows=4.00 loops=1)
+                          Index Cond: (user_id = 965)
+                          Heap Fetches: 4
+                          Index Searches: 1
+                          Buffers: shared hit=295
+Planning:
+  Buffers: shared hit=216
+Planning Time: 0.296 ms
+Execution Time: 20.352 ms
+=== R04 run 3 ===
+Limit  (cost=4852.17..4852.18 rows=3 width=36) (actual time=19.697..19.699 rows=6.00 loops=1)
+  Buffers: shared hit=1666
+  ->  Sort  (cost=4852.17..4852.18 rows=3 width=36) (actual time=19.697..19.698 rows=6.00 loops=1)
+        Sort Key: m.sent_at DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=1666
+        ->  Hash Join  (cost=1949.49..4852.15 rows=3 width=36) (actual time=5.193..19.689 rows=6.00 loops=1)
+              Hash Cond: (m.chat_id = cm.chat_id)
+              Buffers: shared hit=1663
+              ->  Seq Scan on messages m  (cost=0.00..2868.00 rows=13200 width=36) (actual time=0.003..18.404 rows=12935.00 loops=1)
+                    Filter: (body ~~* '%meeting%'::text)
+                    Rows Removed by Filter: 107065
+                    Buffers: shared hit=1368
+              ->  Hash  (cost=1949.44..1949.44 rows=4 width=4) (actual time=0.873..0.873 rows=4.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                    Buffers: shared hit=295
+                    ->  Index Only Scan using chat_members_pkey on chat_members cm  (cost=0.29..1949.44 rows=4 width=4) (actual time=0.319..0.870 rows=4.00 loops=1)
+                          Index Cond: (user_id = 965)
+                          Heap Fetches: 4
+                          Index Searches: 1
+                          Buffers: shared hit=295
+Planning:
+  Buffers: shared hit=216
+Planning Time: 0.290 ms
+Execution Time: 19.717 ms

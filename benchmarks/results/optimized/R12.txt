@@ -1,0 +1,57 @@
+=== R12 run 1 ===
+Sort  (cost=633.32..638.17 rows=1940 width=16) (actual time=1.169..1.169 rows=3.00 loops=1)
+  Sort Key: (count(*)) DESC, sender_id
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=31
+  ->  HashAggregate  (cost=449.78..527.38 rows=1940 width=16) (actual time=1.033..1.161 rows=3.00 loops=1)
+        Group Key: sender_id, (sent_at)::date
+        Filter: (count(*) >= 2)
+        Batches: 1  Memory Usage: 409kB
+        Rows Removed by Filter: 5992
+        Buffers: shared hit=25
+        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..406.13 rows=5820 width=8) (actual time=0.034..0.508 rows=5998.00 loops=1)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=25
+Planning:
+  Buffers: shared hit=193
+Planning Time: 0.296 ms
+Execution Time: 1.213 ms
+=== R12 run 2 ===
+Sort  (cost=633.32..638.17 rows=1940 width=16) (actual time=1.017..1.017 rows=3.00 loops=1)
+  Sort Key: (count(*)) DESC, sender_id
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=31
+  ->  HashAggregate  (cost=449.78..527.38 rows=1940 width=16) (actual time=0.880..1.010 rows=3.00 loops=1)
+        Group Key: sender_id, (sent_at)::date
+        Filter: (count(*) >= 2)
+        Batches: 1  Memory Usage: 409kB
+        Rows Removed by Filter: 5992
+        Buffers: shared hit=25
+        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..406.13 rows=5820 width=8) (actual time=0.027..0.433 rows=5998.00 loops=1)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=25
+Planning:
+  Buffers: shared hit=193
+Planning Time: 0.264 ms
+Execution Time: 1.060 ms
+=== R12 run 3 ===
+Sort  (cost=633.32..638.17 rows=1940 width=16) (actual time=1.023..1.023 rows=3.00 loops=1)
+  Sort Key: (count(*)) DESC, sender_id
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=31
+  ->  HashAggregate  (cost=449.78..527.38 rows=1940 width=16) (actual time=0.890..1.016 rows=3.00 loops=1)
+        Group Key: sender_id, (sent_at)::date
+        Filter: (count(*) >= 2)
+        Batches: 1  Memory Usage: 409kB
+        Rows Removed by Filter: 5992
+        Buffers: shared hit=25
+        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..406.13 rows=5820 width=8) (actual time=0.026..0.431 rows=5998.00 loops=1)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=25
+Planning:
+  Buffers: shared hit=193
+Planning Time: 0.249 ms
+Execution Time: 1.059 ms

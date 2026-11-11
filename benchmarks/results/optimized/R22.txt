@@ -1,0 +1,75 @@
+=== R22 run 1 ===
+Sort  (cost=2854.60..2854.66 rows=25 width=25) (actual time=4.808..4.809 rows=25.00 loops=1)
+  Sort Key: m.message_id DESC
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=355 dirtied=1
+  ->  Nested Loop  (cost=2646.31..2854.02 rows=25 width=25) (actual time=4.790..4.801 rows=25.00 loops=1)
+        Buffers: shared hit=352 dirtied=1
+        ->  HashAggregate  (cost=2646.02..2646.27 rows=25 width=4) (actual time=4.782..4.783 rows=25.00 loops=1)
+              Group Key: messages.message_id
+              Batches: 1  Memory Usage: 32kB
+              Buffers: shared hit=277 dirtied=1
+              ->  Limit  (cost=2645.29..2645.95 rows=25 width=4) (actual time=4.774..4.776 rows=25.00 loops=1)
+                    Buffers: shared hit=277 dirtied=1
+                    ->  Index Only Scan Backward using messages_pkey on messages  (cost=0.29..3174.29 rows=120000 width=4) (actual time=0.003..3.063 rows=100025.00 loops=1)
+                          Heap Fetches: 25
+                          Index Searches: 1
+                          Buffers: shared hit=277 dirtied=1
+        ->  Index Scan using messages_pkey on messages m  (cost=0.29..8.31 rows=1 width=25) (actual time=0.001..0.001 rows=1.00 loops=25)
+              Index Cond: (message_id = messages.message_id)
+              Index Searches: 25
+              Buffers: shared hit=75
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.332 ms
+Execution Time: 4.834 ms
+=== R22 run 2 ===
+Sort  (cost=2854.60..2854.66 rows=25 width=25) (actual time=4.540..4.541 rows=25.00 loops=1)
+  Sort Key: m.message_id DESC
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=355
+  ->  Nested Loop  (cost=2646.31..2854.02 rows=25 width=25) (actual time=4.520..4.532 rows=25.00 loops=1)
+        Buffers: shared hit=352
+        ->  HashAggregate  (cost=2646.02..2646.27 rows=25 width=4) (actual time=4.515..4.516 rows=25.00 loops=1)
+              Group Key: messages.message_id
+              Batches: 1  Memory Usage: 32kB
+              Buffers: shared hit=277
+              ->  Limit  (cost=2645.29..2645.95 rows=25 width=4) (actual time=4.509..4.511 rows=25.00 loops=1)
+                    Buffers: shared hit=277
+                    ->  Index Only Scan Backward using messages_pkey on messages  (cost=0.29..3174.29 rows=120000 width=4) (actual time=0.003..2.854 rows=100025.00 loops=1)
+                          Heap Fetches: 24
+                          Index Searches: 1
+                          Buffers: shared hit=277
+        ->  Index Scan using messages_pkey on messages m  (cost=0.29..8.31 rows=1 width=25) (actual time=0.000..0.000 rows=1.00 loops=25)
+              Index Cond: (message_id = messages.message_id)
+              Index Searches: 25
+              Buffers: shared hit=75
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.329 ms
+Execution Time: 4.565 ms
+=== R22 run 3 ===
+Sort  (cost=2854.60..2854.66 rows=25 width=25) (actual time=4.519..4.519 rows=25.00 loops=1)
+  Sort Key: m.message_id DESC
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=355
+  ->  Nested Loop  (cost=2646.31..2854.02 rows=25 width=25) (actual time=4.499..4.511 rows=25.00 loops=1)
+        Buffers: shared hit=352
+        ->  HashAggregate  (cost=2646.02..2646.27 rows=25 width=4) (actual time=4.492..4.493 rows=25.00 loops=1)
+              Group Key: messages.message_id
+              Batches: 1  Memory Usage: 32kB
+              Buffers: shared hit=277
+              ->  Limit  (cost=2645.29..2645.95 rows=25 width=4) (actual time=4.487..4.489 rows=25.00 loops=1)
+                    Buffers: shared hit=277
+                    ->  Index Only Scan Backward using messages_pkey on messages  (cost=0.29..3174.29 rows=120000 width=4) (actual time=0.003..2.823 rows=100025.00 loops=1)
+                          Heap Fetches: 24
+                          Index Searches: 1
+                          Buffers: shared hit=277
+        ->  Index Scan using messages_pkey on messages m  (cost=0.29..8.31 rows=1 width=25) (actual time=0.001..0.001 rows=1.00 loops=25)
+              Index Cond: (message_id = messages.message_id)
+              Index Searches: 25
+              Buffers: shared hit=75
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.305 ms
+Execution Time: 4.541 ms

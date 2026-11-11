@@ -1,0 +1,42 @@
+=== W04 run 1 ===
+Insert on message_receipts  (cost=0.00..50.00 rows=0 width=0) (actual time=13.418..13.418 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: message_receipts_pkey
+  Tuples Inserted: 5000
+  Conflicting Tuples: 0
+  Buffers: shared hit=66010 dirtied=25 written=25
+  ->  Function Scan on generate_series g  (cost=0.00..50.00 rows=5000 width=24) (actual time=0.113..0.313 rows=5000.00 loops=1)
+Planning:
+  Buffers: shared hit=59
+Planning Time: 0.068 ms
+Trigger for constraint message_receipts_message_id_fkey: time=8.579 calls=5000
+Trigger for constraint message_receipts_user_id_fkey: time=9.149 calls=5000
+Execution Time: 31.379 ms
+=== W04 run 2 ===
+Insert on message_receipts  (cost=0.00..50.00 rows=0 width=0) (actual time=12.461..12.462 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: message_receipts_pkey
+  Tuples Inserted: 5000
+  Conflicting Tuples: 0
+  Buffers: shared hit=66575 dirtied=26 written=26
+  ->  Function Scan on generate_series g  (cost=0.00..50.00 rows=5000 width=24) (actual time=0.101..0.303 rows=5000.00 loops=1)
+Planning:
+  Buffers: shared hit=59
+Planning Time: 0.067 ms
+Trigger for constraint message_receipts_message_id_fkey: time=8.799 calls=5000
+Trigger for constraint message_receipts_user_id_fkey: time=9.159 calls=5000
+Execution Time: 30.661 ms
+=== W04 run 3 ===
+Insert on message_receipts  (cost=0.00..50.00 rows=0 width=0) (actual time=12.219..12.219 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: message_receipts_pkey
+  Tuples Inserted: 5000
+  Conflicting Tuples: 0
+  Buffers: shared hit=66519 dirtied=26 written=26
+  ->  Function Scan on generate_series g  (cost=0.00..50.00 rows=5000 width=24) (actual time=0.101..0.286 rows=5000.00 loops=1)
+Planning:
+  Buffers: shared hit=59
+Planning Time: 0.069 ms
+Trigger for constraint message_receipts_message_id_fkey: time=8.693 calls=5000
+Trigger for constraint message_receipts_user_id_fkey: time=9.248 calls=5000
+Execution Time: 30.405 ms

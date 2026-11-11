@@ -1,0 +1,84 @@
+=== R04 run 1 ===
+Limit  (cost=147.60..147.61 rows=3 width=36) (actual time=0.201..0.202 rows=6.00 loops=1)
+  Buffers: shared hit=98
+  ->  Sort  (cost=147.60..147.61 rows=3 width=36) (actual time=0.200..0.201 rows=6.00 loops=1)
+        Sort Key: m.sent_at DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=98
+        ->  Nested Loop  (cost=4.90..147.58 rows=3 width=36) (actual time=0.063..0.189 rows=6.00 loops=1)
+              Buffers: shared hit=95
+              ->  Index Only Scan using idx_members_user on chat_members cm  (cost=0.42..8.49 rows=4 width=4) (actual time=0.004..0.006 rows=4.00 loops=1)
+                    Index Cond: (user_id = 965)
+                    Heap Fetches: 1
+                    Index Searches: 1
+                    Buffers: shared hit=5
+              ->  Bitmap Heap Scan on messages m  (cost=4.48..34.76 rows=1 width=36) (actual time=0.027..0.045 rows=1.50 loops=4)
+                    Recheck Cond: (cm.chat_id = chat_id)
+                    Filter: (body ~~* '%meeting%'::text)
+                    Rows Removed by Filter: 18
+                    Heap Blocks: exact=77
+                    Buffers: shared hit=90
+                    ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.004..0.004 rows=19.75 loops=4)
+                          Index Cond: (chat_id = cm.chat_id)
+                          Index Searches: 4
+                          Buffers: shared hit=13
+Planning:
+  Buffers: shared hit=313
+Planning Time: 0.870 ms
+Execution Time: 0.222 ms
+=== R04 run 2 ===
+Limit  (cost=147.60..147.61 rows=3 width=36) (actual time=0.119..0.119 rows=6.00 loops=1)
+  Buffers: shared hit=98
+  ->  Sort  (cost=147.60..147.61 rows=3 width=36) (actual time=0.118..0.119 rows=6.00 loops=1)
+        Sort Key: m.sent_at DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=98
+        ->  Nested Loop  (cost=4.90..147.58 rows=3 width=36) (actual time=0.037..0.108 rows=6.00 loops=1)
+              Buffers: shared hit=95
+              ->  Index Only Scan using idx_members_user on chat_members cm  (cost=0.42..8.49 rows=4 width=4) (actual time=0.003..0.006 rows=4.00 loops=1)
+                    Index Cond: (user_id = 965)
+                    Heap Fetches: 1
+                    Index Searches: 1
+                    Buffers: shared hit=5
+              ->  Bitmap Heap Scan on messages m  (cost=4.48..34.76 rows=1 width=36) (actual time=0.015..0.025 rows=1.50 loops=4)
+                    Recheck Cond: (cm.chat_id = chat_id)
+                    Filter: (body ~~* '%meeting%'::text)
+                    Rows Removed by Filter: 18
+                    Heap Blocks: exact=77
+                    Buffers: shared hit=90
+                    ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.003..0.003 rows=19.75 loops=4)
+                          Index Cond: (chat_id = cm.chat_id)
+                          Index Searches: 4
+                          Buffers: shared hit=13
+Planning:
+  Buffers: shared hit=313
+Planning Time: 0.479 ms
+Execution Time: 0.136 ms
+=== R04 run 3 ===
+Limit  (cost=147.60..147.61 rows=3 width=36) (actual time=0.087..0.088 rows=6.00 loops=1)
+  Buffers: shared hit=98
+  ->  Sort  (cost=147.60..147.61 rows=3 width=36) (actual time=0.087..0.087 rows=6.00 loops=1)
+        Sort Key: m.sent_at DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=98
+        ->  Nested Loop  (cost=4.90..147.58 rows=3 width=36) (actual time=0.026..0.079 rows=6.00 loops=1)
+              Buffers: shared hit=95
+              ->  Index Only Scan using idx_members_user on chat_members cm  (cost=0.42..8.49 rows=4 width=4) (actual time=0.002..0.004 rows=4.00 loops=1)
+                    Index Cond: (user_id = 965)
+                    Heap Fetches: 1
+                    Index Searches: 1
+                    Buffers: shared hit=5
+              ->  Bitmap Heap Scan on messages m  (cost=4.48..34.76 rows=1 width=36) (actual time=0.011..0.018 rows=1.50 loops=4)
+                    Recheck Cond: (cm.chat_id = chat_id)
+                    Filter: (body ~~* '%meeting%'::text)
+                    Rows Removed by Filter: 18
+                    Heap Blocks: exact=77
+                    Buffers: shared hit=90
+                    ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.002..0.002 rows=19.75 loops=4)
+                          Index Cond: (chat_id = cm.chat_id)
+                          Index Searches: 4
+                          Buffers: shared hit=13
+Planning:
+  Buffers: shared hit=313
+Planning Time: 0.414 ms
+Execution Time: 0.102 ms

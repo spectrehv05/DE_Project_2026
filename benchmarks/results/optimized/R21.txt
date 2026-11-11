@@ -1,0 +1,45 @@
+=== R21 run 1 ===
+Sort  (cost=3768.29..3768.30 rows=6 width=77) (actual time=11.908..11.908 rows=6.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1371
+  ->  HashAggregate  (cost=3768.00..3768.21 rows=6 width=77) (actual time=11.898..11.900 rows=6.00 loops=1)
+        Group Key: message_type
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=1368
+        ->  Seq Scan on messages  (cost=0.00..2568.00 rows=120000 width=14) (actual time=0.002..2.957 rows=120000.00 loops=1)
+              Buffers: shared hit=1368
+Planning:
+  Buffers: shared hit=190
+Planning Time: 0.267 ms
+Execution Time: 11.940 ms
+=== R21 run 2 ===
+Sort  (cost=3768.29..3768.30 rows=6 width=77) (actual time=11.877..11.878 rows=6.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1371
+  ->  HashAggregate  (cost=3768.00..3768.21 rows=6 width=77) (actual time=11.869..11.870 rows=6.00 loops=1)
+        Group Key: message_type
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=1368
+        ->  Seq Scan on messages  (cost=0.00..2568.00 rows=120000 width=14) (actual time=0.002..2.946 rows=120000.00 loops=1)
+              Buffers: shared hit=1368
+Planning:
+  Buffers: shared hit=190
+Planning Time: 0.256 ms
+Execution Time: 11.906 ms
+=== R21 run 3 ===
+Sort  (cost=3768.29..3768.30 rows=6 width=77) (actual time=11.681..11.682 rows=6.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1371
+  ->  HashAggregate  (cost=3768.00..3768.21 rows=6 width=77) (actual time=11.673..11.675 rows=6.00 loops=1)
+        Group Key: message_type
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=1368
+        ->  Seq Scan on messages  (cost=0.00..2568.00 rows=120000 width=14) (actual time=0.003..2.873 rows=120000.00 loops=1)
+              Buffers: shared hit=1368
+Planning:
+  Buffers: shared hit=190
+Planning Time: 0.269 ms
+Execution Time: 11.713 ms

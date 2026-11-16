@@ -8,7 +8,7 @@
 -- Queries marked UNCHANGED already use the new indexes (or primary keys) as written.
 -- Queries marked REWRITTEN needed a different formulation.
 -- =====================================================================
-SET search_path TO whatsapp;
+SET search_path TO public;
 BEGIN;
 
 -- @R01

@@ -1,57 +1,57 @@
 === R02 run 1 ===
-Limit  (cost=34.86..34.88 rows=8 width=45) (actual time=0.102..0.104 rows=34.00 loops=1)
-  Buffers: shared hit=40
-  ->  Sort  (cost=34.86..34.88 rows=8 width=45) (actual time=0.101..0.102 rows=34.00 loops=1)
+Limit  (cost=34.86..34.88 rows=8 width=45) (actual time=0.098..0.101 rows=34.00 loops=1)
+  Buffers: shared hit=39
+  ->  Sort  (cost=34.86..34.88 rows=8 width=45) (actual time=0.097..0.099 rows=34.00 loops=1)
         Sort Key: sent_at DESC
         Sort Method: quicksort  Memory: 27kB
-        Buffers: shared hit=40
-        ->  Bitmap Heap Scan on messages  (cost=4.48..34.74 rows=8 width=45) (actual time=0.016..0.088 rows=34.00 loops=1)
+        Buffers: shared hit=39
+        ->  Bitmap Heap Scan on messages  (cost=4.48..34.74 rows=8 width=45) (actual time=0.021..0.077 rows=34.00 loops=1)
               Recheck Cond: (chat_id = 22556)
               Heap Blocks: exact=33
-              Buffers: shared hit=37
-              ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.009..0.009 rows=34.00 loops=1)
+              Buffers: shared hit=36
+              ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.011..0.011 rows=34.00 loops=1)
                     Index Cond: (chat_id = 22556)
                     Index Searches: 1
-                    Buffers: shared hit=4
+                    Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=166
-Planning Time: 0.289 ms
-Execution Time: 0.118 ms
+  Buffers: shared hit=186
+Planning Time: 0.499 ms
+Execution Time: 0.125 ms
 === R02 run 2 ===
-Limit  (cost=34.86..34.88 rows=8 width=45) (actual time=0.057..0.059 rows=34.00 loops=1)
-  Buffers: shared hit=40
-  ->  Sort  (cost=34.86..34.88 rows=8 width=45) (actual time=0.057..0.058 rows=34.00 loops=1)
+Limit  (cost=34.86..34.88 rows=8 width=45) (actual time=0.109..0.112 rows=34.00 loops=1)
+  Buffers: shared hit=39
+  ->  Sort  (cost=34.86..34.88 rows=8 width=45) (actual time=0.108..0.109 rows=34.00 loops=1)
         Sort Key: sent_at DESC
         Sort Method: quicksort  Memory: 27kB
-        Buffers: shared hit=40
-        ->  Bitmap Heap Scan on messages  (cost=4.48..34.74 rows=8 width=45) (actual time=0.015..0.046 rows=34.00 loops=1)
+        Buffers: shared hit=39
+        ->  Bitmap Heap Scan on messages  (cost=4.48..34.74 rows=8 width=45) (actual time=0.023..0.086 rows=34.00 loops=1)
               Recheck Cond: (chat_id = 22556)
               Heap Blocks: exact=33
-              Buffers: shared hit=37
-              ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.009..0.009 rows=34.00 loops=1)
+              Buffers: shared hit=36
+              ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.012..0.012 rows=34.00 loops=1)
                     Index Cond: (chat_id = 22556)
                     Index Searches: 1
-                    Buffers: shared hit=4
+                    Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=166
-Planning Time: 0.252 ms
-Execution Time: 0.072 ms
+  Buffers: shared hit=178
+Planning Time: 0.502 ms
+Execution Time: 0.138 ms
 === R02 run 3 ===
-Limit  (cost=34.86..34.88 rows=8 width=45) (actual time=0.068..0.070 rows=34.00 loops=1)
-  Buffers: shared hit=40
-  ->  Sort  (cost=34.86..34.88 rows=8 width=45) (actual time=0.067..0.068 rows=34.00 loops=1)
+Limit  (cost=34.86..34.88 rows=8 width=45) (actual time=0.112..0.116 rows=34.00 loops=1)
+  Buffers: shared hit=39
+  ->  Sort  (cost=34.86..34.88 rows=8 width=45) (actual time=0.111..0.113 rows=34.00 loops=1)
         Sort Key: sent_at DESC
         Sort Method: quicksort  Memory: 27kB
-        Buffers: shared hit=40
-        ->  Bitmap Heap Scan on messages  (cost=4.48..34.74 rows=8 width=45) (actual time=0.019..0.053 rows=34.00 loops=1)
+        Buffers: shared hit=39
+        ->  Bitmap Heap Scan on messages  (cost=4.48..34.74 rows=8 width=45) (actual time=0.024..0.089 rows=34.00 loops=1)
               Recheck Cond: (chat_id = 22556)
               Heap Blocks: exact=33
-              Buffers: shared hit=37
-              ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.010..0.010 rows=34.00 loops=1)
+              Buffers: shared hit=36
+              ->  Bitmap Index Scan on idx_messages_chat_sent  (cost=0.00..4.48 rows=8 width=0) (actual time=0.013..0.013 rows=34.00 loops=1)
                     Index Cond: (chat_id = 22556)
                     Index Searches: 1
-                    Buffers: shared hit=4
+                    Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=166
-Planning Time: 0.302 ms
-Execution Time: 0.086 ms
+  Buffers: shared hit=178
+Planning Time: 0.521 ms
+Execution Time: 0.143 ms

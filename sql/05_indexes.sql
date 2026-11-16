@@ -8,7 +8,7 @@
 -- Each index lists the queries it serves. Partial indexes are used where the
 -- query filters on a rare value, so the index stays small and cheap to maintain.
 
-SET search_path TO whatsapp;
+SET search_path TO public;
 
 -- ---------------------------------------------------------------------
 -- messages

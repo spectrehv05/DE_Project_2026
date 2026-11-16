@@ -1,33 +1,33 @@
 === W03 run 1 ===
-Update on messages  (cost=0.29..8.31 rows=0 width=0) (actual time=0.079..0.079 rows=0.00 loops=1)
-  Buffers: shared hit=32
-  ->  Index Scan using messages_pkey on messages  (cost=0.29..8.31 rows=1 width=43) (actual time=0.007..0.007 rows=1.00 loops=1)
+Update on messages  (cost=0.29..8.31 rows=0 width=0) (actual time=0.141..0.142 rows=0.00 loops=1)
+  Buffers: shared hit=29
+  ->  Index Scan using messages_pkey on messages  (cost=0.29..8.31 rows=1 width=43) (actual time=0.018..0.018 rows=1.00 loops=1)
         Index Cond: (message_id = 119989)
         Index Searches: 1
         Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=133
-Planning Time: 0.228 ms
-Execution Time: 0.119 ms
+  Buffers: shared hit=145
+Planning Time: 0.526 ms
+Execution Time: 0.227 ms
 === W03 run 2 ===
-Update on messages  (cost=0.29..8.31 rows=0 width=0) (actual time=0.101..0.101 rows=0.00 loops=1)
-  Buffers: shared hit=32
-  ->  Index Scan using messages_pkey on messages  (cost=0.29..8.31 rows=1 width=43) (actual time=0.009..0.010 rows=1.00 loops=1)
+Update on messages  (cost=0.29..8.31 rows=0 width=0) (actual time=0.143..0.143 rows=0.00 loops=1)
+  Buffers: shared hit=29
+  ->  Index Scan using messages_pkey on messages  (cost=0.29..8.31 rows=1 width=43) (actual time=0.019..0.020 rows=1.00 loops=1)
         Index Cond: (message_id = 119989)
         Index Searches: 1
         Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=133
-Planning Time: 0.326 ms
-Execution Time: 0.150 ms
+  Buffers: shared hit=145
+Planning Time: 0.506 ms
+Execution Time: 0.225 ms
 === W03 run 3 ===
-Update on messages  (cost=0.29..8.31 rows=0 width=0) (actual time=0.070..0.070 rows=0.00 loops=1)
-  Buffers: shared hit=32
-  ->  Index Scan using messages_pkey on messages  (cost=0.29..8.31 rows=1 width=43) (actual time=0.006..0.007 rows=1.00 loops=1)
+Update on messages  (cost=0.29..8.31 rows=0 width=0) (actual time=0.151..0.151 rows=0.00 loops=1)
+  Buffers: shared hit=29
+  ->  Index Scan using messages_pkey on messages  (cost=0.29..8.31 rows=1 width=43) (actual time=0.020..0.021 rows=1.00 loops=1)
         Index Cond: (message_id = 119989)
         Index Searches: 1
         Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=133
-Planning Time: 0.211 ms
-Execution Time: 0.106 ms
+  Buffers: shared hit=145
+Planning Time: 0.485 ms
+Execution Time: 0.231 ms

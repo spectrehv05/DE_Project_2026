@@ -1,57 +1,57 @@
 === R12 run 1 ===
-Sort  (cost=633.32..638.17 rows=1940 width=16) (actual time=1.169..1.169 rows=3.00 loops=1)
+Sort  (cost=653.86..659.00 rows=2056 width=16) (actual time=2.821..2.822 rows=3.00 loops=1)
   Sort Key: (count(*)) DESC, sender_id
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=31
-  ->  HashAggregate  (cost=449.78..527.38 rows=1940 width=16) (actual time=1.033..1.161 rows=3.00 loops=1)
+  Buffers: shared hit=7 read=24
+  ->  HashAggregate  (cost=458.48..540.72 rows=2056 width=16) (actual time=2.549..2.804 rows=3.00 loops=1)
         Group Key: sender_id, (sent_at)::date
         Filter: (count(*) >= 2)
         Batches: 1  Memory Usage: 409kB
         Rows Removed by Filter: 5992
-        Buffers: shared hit=25
-        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..406.13 rows=5820 width=8) (actual time=0.034..0.508 rows=5998.00 loops=1)
+        Buffers: shared hit=1 read=24
+        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..412.22 rows=6168 width=8) (actual time=0.414..1.560 rows=5998.00 loops=1)
               Heap Fetches: 0
               Index Searches: 1
-              Buffers: shared hit=25
+              Buffers: shared hit=1 read=24
 Planning:
-  Buffers: shared hit=193
-Planning Time: 0.296 ms
-Execution Time: 1.213 ms
+  Buffers: shared hit=202
+Planning Time: 0.606 ms
+Execution Time: 2.907 ms
 === R12 run 2 ===
-Sort  (cost=633.32..638.17 rows=1940 width=16) (actual time=1.017..1.017 rows=3.00 loops=1)
+Sort  (cost=653.86..659.00 rows=2056 width=16) (actual time=2.284..2.285 rows=3.00 loops=1)
   Sort Key: (count(*)) DESC, sender_id
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=31
-  ->  HashAggregate  (cost=449.78..527.38 rows=1940 width=16) (actual time=0.880..1.010 rows=3.00 loops=1)
+  ->  HashAggregate  (cost=458.48..540.72 rows=2056 width=16) (actual time=1.925..2.268 rows=3.00 loops=1)
         Group Key: sender_id, (sent_at)::date
         Filter: (count(*) >= 2)
         Batches: 1  Memory Usage: 409kB
         Rows Removed by Filter: 5992
         Buffers: shared hit=25
-        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..406.13 rows=5820 width=8) (actual time=0.027..0.433 rows=5998.00 loops=1)
+        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..412.22 rows=6168 width=8) (actual time=0.054..0.948 rows=5998.00 loops=1)
               Heap Fetches: 0
               Index Searches: 1
               Buffers: shared hit=25
 Planning:
-  Buffers: shared hit=193
-Planning Time: 0.264 ms
-Execution Time: 1.060 ms
+  Buffers: shared hit=200
+Planning Time: 0.559 ms
+Execution Time: 2.366 ms
 === R12 run 3 ===
-Sort  (cost=633.32..638.17 rows=1940 width=16) (actual time=1.023..1.023 rows=3.00 loops=1)
+Sort  (cost=653.86..659.00 rows=2056 width=16) (actual time=2.247..2.248 rows=3.00 loops=1)
   Sort Key: (count(*)) DESC, sender_id
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=31
-  ->  HashAggregate  (cost=449.78..527.38 rows=1940 width=16) (actual time=0.890..1.016 rows=3.00 loops=1)
+  ->  HashAggregate  (cost=458.48..540.72 rows=2056 width=16) (actual time=1.966..2.232 rows=3.00 loops=1)
         Group Key: sender_id, (sent_at)::date
         Filter: (count(*) >= 2)
         Batches: 1  Memory Usage: 409kB
         Rows Removed by Filter: 5992
         Buffers: shared hit=25
-        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..406.13 rows=5820 width=8) (actual time=0.026..0.431 rows=5998.00 loops=1)
+        ->  Index Only Scan using idx_messages_forwarded on messages  (cost=0.28..412.22 rows=6168 width=8) (actual time=0.055..0.962 rows=5998.00 loops=1)
               Heap Fetches: 0
               Index Searches: 1
               Buffers: shared hit=25
 Planning:
-  Buffers: shared hit=193
-Planning Time: 0.249 ms
-Execution Time: 1.059 ms
+  Buffers: shared hit=200
+Planning Time: 0.563 ms
+Execution Time: 2.331 ms
